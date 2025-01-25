@@ -1,25 +1,31 @@
 // Desafio alura - Amigo invisible
+nombreAmigo=document.getElementById("amigo");
+
+
 
 //declaracion de variables
 let nombres = [];
-let sorteo = 0;
+
+
+
+
 
 //Funcion para agregar un nombre a la lista
-
-function agregarNombre() {
-    let nombre = prompt("Ingrese un nombre");
+function agregarAmigo() {
+    let nombre = nombreAmigo.value;
+    if (nombre == "" || nombre == " "){
+        alert("El nombre no puede estar vacío");
+        return;
+    }
     nombres.push(nombre);
+    nombreAmigo.value = "";
 }
 
+
+
+
 //Funcion para sortear un nombre
-function sortearNombre() {
+function sortearAmigo() {
     let indiceSorteo = Math.floor(Math.random() * nombres.length);
     alert("El nombre elegido es: " + nombres[indiceSorteo]);
 }
-//rama principal de la aplicacion
-while (sorteo==0) {
-    agregarNombre();
-    sorteo = prompt("Para agregar otro nombre presione 0 , sino preciono cualquier tecla");
-}
-
-sortearNombre();
